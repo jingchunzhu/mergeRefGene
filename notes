@@ -1,0 +1,20 @@
+python mergeRefGene.py
+
+#refgene_good : one gene one modal one island
+
+#refgene_good = single + multiple_oneIsland
+#single: one gene one transcript in refSeq
+#multiple_oneIsland: one gene multiple transcripts in refSeq, but all at a single genomic location
+
+#multiple_multipleIsland_good : one gene multiple transcripts in refSeq, at different genomic location, but all have the exact exon structures, can be used to map genomic data to a uniq exon annotations
+#bad_gene : genes with multiple transcripts in refSeq, at different genomic location, have the more than one exon structures, very difficult to map genomic data
+
+python refgene_to_bed.py multiple_multipleIsland > output
+cut -f 1,4,6,10,11 output|grep -v "_" |sort |uniq -c > stats_multiple_structure
+
+#grep -v chr[1-9]*_ multiple_multipleIsland > tmp
+
+python findMultiple.py	
+
+
+
