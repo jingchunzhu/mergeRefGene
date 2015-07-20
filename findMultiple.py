@@ -38,7 +38,7 @@ os.system ("grep -v chr[1-9]*_ multiple_multipleIsland > tmp")
 frefgene= open("tmp",'r')
 for line in frefgene.readlines():
     data = string.split(line)
-    gene =data[2]
+    gene =data[12]
     if gene in badgenes:
         continue
     fout.write(line)

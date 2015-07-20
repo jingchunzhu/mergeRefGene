@@ -25,6 +25,9 @@ print len(genes)
 
 islandDic={}
 c=0
+
+fout.write(string.join(["#bin", "name", "chrom", "strand", "txStart", "txEnd", "cdsStart", "cdsEnd", "exonCount", "exonStarts", "exonEnds", "score", "name2", "cdsStartStat", "cdsEndStat", "exonFrames\n"],"\t"))
+
 for gene in genes:
     allData = refdic[gene]
     #only one entry for this gene
@@ -55,10 +58,15 @@ for gene in genes:
                 islandDic[gene][i][4] =int(data[4])
             if int(data[5]) > end:
                 islandDic[gene][i][5] = int(data[5])
-            if int(data[6]) < proStart:
-                islandDic[gene][i][6] =int(data[6])
-            if int(data[7]) > proEnd:
-                islandDic[gene][i][7] = int(data[7])
+            if proStart== proEnd and data[6] == data[7]:
+                if int(data[7]) > proEnd:
+                    islandDic[gene][i][7] = int(data[7])                
+                    islandDic[gene][i][6] = int(data[6])                
+            else:
+                if int(data[6]) < proStart:
+                    islandDic[gene][i][6] =int(data[6])
+                if int(data[7]) > proEnd:
+                    islandDic[gene][i][7] = int(data[7])
             break
         if not overlap:
             islandDic[gene].append(data)
@@ -79,10 +87,15 @@ for gene in genes:
                 allIslands[j][4] = int(allIslands[i][4])
             if int(allIslands[i][5]) > int(allIslands[j][5]):
                 allIslands[j][5] = int(allIslands[i][5])
-            if int(allIslands[i][6]) < int(allIslands[j][6]):
-                allIslands[j][6] =int(allIslands[i][6])
-            if int(allIslands[i][7]) < int(allIslands[j][7]):
-                allIslands[j][7] =int(allIslands[i][7])
+            if int(allIslands[i][6]) ==  int(allIslands[i][7]) and int(allIslands[j][6]) ==  int(allIslands[j][7]):
+                if int(allIslands[i][7]) < int(allIslands[j][7]):
+                    allIslands[j][6] =int(allIslands[i][6])
+                    allIslands[j][7] =int(allIslands[i][7])
+            else:
+                if int(allIslands[i][6]) < int(allIslands[j][6]):
+                    allIslands[j][6] =int(allIslands[i][6])
+                if int(allIslands[i][7]) < int(allIslands[j][7]):
+                    allIslands[j][7] =int(allIslands[i][7])
             break
         if good:
             allGoodIslands.append(allIslands[i])

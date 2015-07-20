@@ -1,0 +1,8 @@
+{
+"assembly": "hg19", 
+"name": "refgene_good", 
+"start_index":0,
+"notes": "0 based Genome Browser coordinates, merged to make composite transcripts", 
+"type": "genePredExt", 
+"version": "2014-02-24"
+}
