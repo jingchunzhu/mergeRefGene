@@ -1,7 +1,7 @@
 import string, os, sys
 
 if len(sys.argv[:])!=4:
-    print "python mergeRefGene.py refGeneGB refgene_good(merged good model, see notes) multiple_multipleIsland (see notes)"
+    print "python mergeRefGene.py refGene/gencode_GB_download refgene_good(merged good model, see notes) multiple_multipleIsland (see notes)"
     print "****multiple island output to file=multiple_multipleIsland\n"
     sys.exit()
     
