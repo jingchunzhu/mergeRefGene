@@ -1,8 +1,0 @@
-{
-"assembly": "hg19", 
-"name": "refgene_good", 
-"start_index":0,
-"notes": "0 based Genome Browser coordinates, http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/refGene.txt.gz data merged to make composite transcripts", 
-"type": "genePredExt", 
-"version": "2015-07-20"
-}
