@@ -11,6 +11,8 @@ fmulti =open(sys.argv[3],'w')
 
 refdic={}
 for line in fin.readlines():
+    if line[0]=="#":
+        continue
     line =string.strip(line)
     data= string.split(line,'\t')
     gene= data[12]
