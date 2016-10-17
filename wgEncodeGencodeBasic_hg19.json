@@ -1,6 +1,0 @@
-{ 
-  "name" : "gencode_hg19", 
-  "type" : "genePredExt", 
-  "assembly" : "hg19", 
-  "url":"http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/wgEncodeGencodeBasicV19.txt.gz"
-}
