@@ -41,6 +41,8 @@ for gene in genes:
     if not islandDic.has_key(gene):
         islandDic[gene]=[]
     for data in allData:
+        if string.find(data[2], '_')!= -1 : #only main chromosomes, ignore all non-standard chromosomes
+            continue
         overlap=0
         for i in range (0, len(islandDic[gene])):
             island=islandDic[gene][i]
